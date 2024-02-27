@@ -34,11 +34,11 @@ class HttpSignatureGenerator implements TokenGenerator
             //signature creation for GET/DELETE
             if($merchantConfig->getUseMetaKey())
             {
-                $signatureString = "host: ".$host."\ndate: ".$date."\n(request-target): ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getPortfolioID();
+                $signatureString = "host: ".$host."\ndate: ".$date."\nrequest-target: ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getPortfolioID();
             }
             else
             {
-                $signatureString = "host: ".$host."\ndate: ".$date."\n(request-target): ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getMerchantID();
+                $signatureString = "host: ".$host."\ndate: ".$date."\nrequest-target: ".$methodHeader." ".$resourcePath."\nv-c-merchant-id: ".$merchantConfig->getMerchantID();
             }
             $headerString = GlobalParameter::GETALGOHEADER;
         } else if($method==GlobalParameter::POST || $method==GlobalParameter::PUT || $method==GlobalParameter::PATCH){
